@@ -1,0 +1,16 @@
+body{
+	background-color: #343834;
+}
+.page{
+	padding: 10px;
+    background-color: #f7943c;
+	color: #000000;
+	font-weight: bold;
+}
+.danger{
+	color: #ff0000;
+}
+.head{
+	color: white;
+	text-align: center;
+}
