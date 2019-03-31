@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div align="center">
+    <h1 style="margin-bottom: 20px; text-align: center; color: #ffffff;">Send message</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            <label style="color: #ffffff;">{{ form.content.label }}</label><br>
+                {{ form.content }}<br>
+                {% for error in form.content.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</div>
+</div>
+</div>
+{% endblock %}

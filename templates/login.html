@@ -1,13 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
+<style>
+    .parent {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+}
+/*.block {
+    background: #60a839;
+    img {
+        display: block;
+        border: none;
+    }
+}*/
+</style>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="parent">
         <div class="block">
-            <h1 class = "head">Авторизация</h1>
+            <h1 style="margin-bottom: 20px; text-align: center; color: #ffffff;">Login</h1>
             {% if error == 'notexist' %}
                 <div class="alert alert-danger" role="alert">
-                    Неправильный логин или пароль
+                    Wrong username or password
                 </div>
                 {% endif %}
             <div style="text-align: center">
@@ -30,7 +51,7 @@
                     </div>
                     {% endfor %}
                 </p>
-                <p> {{ form.submit() }} <a href="/registration" style="color: rgb(214, 214, 214); margin-left: 10px;" class="alert-link">Регистрация</a></p>
+                <p> {{ form.submit() }} <a href="/registration" style="color: #ffffff; margin-left: 10px;" class="alert-link">Registration</a></p>
                 </form>
             </div>
         </div>

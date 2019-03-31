@@ -1,21 +1,33 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title >Документ без названия</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>{{title}}</title>
+
 </head>
-<body>
-<link rel="stylesheet" href="style.css" type="text/css"/>
-<div class="page">
-      <div>
-       Listen & Comment
-      </div>
-	  <main role="main" class="container">
+  <body class="bg-inverse" style="background-color: #000000">
+    <header>
+      <nav class="navbar navbar-light bg-warning">
+        <a class="navbar-brand logo font-weight-bold" href="/index">Yula2.0</a>
+          <table>
+    <tr>
+        <th style="width: 150px;"><a style="color: #000000;" href="/add_announcements"> Add a listing</a></th>
+        <th style="width: 150px;"><a style="color: #000000;" href="/my_announcements"> My listings</a></th>
+        <th style="width: 150px;"><a style="color: #000000;" href="/index"> All listings </a></th>
+        <th style="width: 150px;"><a style="color: #000000;" href="/messages"> My messages</a></th>
+    </tr>
+</table>
+        {% if "username" in session %}
+            <a class="navbar-brand" href="/logout">{{session['username']}}</a>
+        {% endif %}
+      </nav>
+
+    </header>
+    <!-- Begin page content -->
+    <main role="main" class="container">
         {% block content %}{% endblock %}
     </main>
-      <div class="page">
-        @Made for Yandex Liceum
-      </div>
-    </div>
-</body>
+  </body>
 </html>
