@@ -12,7 +12,7 @@ class AnnouncementsModel:
                                  category VARCHAR(1000),
                                  user_id INTEGER,
                                  image INTEGER
-                                 )''')
+                                 )''') #add announcement's img number
         cursor.close()
         self.connection.commit()
 
@@ -39,7 +39,7 @@ class AnnouncementsModel:
         rows = cursor.fetchall()
         return rows
 
-    def get_all_category(self, category=None):
+    def get_all_category(self, category=None): # after will add function in main (now it's useless)
         cursor = self.connection.cursor()
         if category:
             cursor.execute("SELECT * FROM announcements WHERE category = ?", category)

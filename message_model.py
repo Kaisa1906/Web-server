@@ -4,10 +4,10 @@ db = DB()
 
 
 class MessageModel:
-    def __init__(self, connection):  # connecting to db
+    def __init__(self, connection):
         self.connection = connection
 
-    def init_table(self):  # create table if not exists
+    def init_table(self):
         cursor = self.connection.cursor()
         cursor.execute('''CREATE TABLE IF NOT EXISTS messages 
                                 (
@@ -19,17 +19,17 @@ class MessageModel:
         cursor.close()
         self.connection.commit()
 
-    def send(self, sender_id, recipient_id, message):
+    def send(self, sender_id, adressee_id, message): # add message in db
         cursor = self.connection.cursor()
         cursor.execute('''INSERT INTO messages 
                           (sender_id, adressee_id,  message) 
                           VALUES (?,?,?)''', (
-            str(sender_id), str(recipient_id),
+            str(sender_id), str(adressee_id),
             message))
         cursor.close()
         self.connection.commit()
 
-    def get_all_between_pair(self, sender_id, adressee_id):
+    def get_all_between_pair(self, sender_id, adressee_id): # get all messages in dialog
         cursor = self.connection.cursor()
         cursor.execute(
             "SELECT * FROM messages WHERE sender_id = ? AND adressee_id = ? OR sender_id = ? AND adressee_id = ?",
@@ -44,12 +44,5 @@ class MessageModel:
             "SELECT * FROM messages WHERE sender_id = ? OR adressee_id = ?",
             (str(sender_id), str(sender_id))
         )
-        rows = cursor.fetchall()
-        return rows
-
-    def get_table(self):
-        cursor = self.connection.cursor()
-        cursor.execute(
-            "SELECT * FROM messages")
         rows = cursor.fetchall()
         return rows
