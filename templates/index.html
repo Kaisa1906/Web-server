@@ -3,12 +3,12 @@
 {% block content %}
 {% for item in announcements %}
 <div class="alert alert-warning" role="alert">
-    <img src="static/img/{{item[5]}}.jpg" width="100" hight="100" align="right">
-    <h1>{{item[1]}}</h1>
+    <img src="static/img/{{item[6]}}.jpg" width="100" hight="100" align="right">
+    <h1>{{item[1]}}</h1> <!-- title -->
     <p>Category: {{item[4]}}</p>
     <p>Cost: {{item[2]}}</p>
     <div>Text: {{item[3]}}</div>
-    <a href="/send_message/{{item[0]}}"><button class="btn btn-dark"> Send message to a seller </button></a>
+    <a href="/send_message/{{item[5]}}"><button class="btn btn-dark"> Send message to a seller </button></a>
 </div>
 {% endfor %}
 {% endblock %}
